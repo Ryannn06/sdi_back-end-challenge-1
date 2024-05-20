@@ -16,19 +16,19 @@ def calculate(num_seat):
 		#calculate total cost by total car times rental cost
 		total_cost = total_car * rental_cost[keys]["cost"] 
 
-		#append the total cast together with the size of the car so we can identify later
+		#append the total cost together with the size of the car
 		rec.append([keys, total_car, total_cost])
 
 	
 	#check if temporary list has data
 	if len(rec) > 0:
 
-		#sort list by cost to identify the cheapest cost	
+		#sort list by cost to identify the cheapest	
 		cheapest = sorted(rec, key=lambda x: x[2], reverse=True)
 		
-		#declare the most optimized car size and cost
-		text = "{} X {}".format(cheapest[-1][0], cheapest[-1][1])
-		total = cheapest[-1][2]
+		#initialize most optimized car size and cost
+		text = "{} x {}".format(cheapest[-1][0], cheapest[-1][1])
+		total = "Total = PHP {}".format(cheapest[-1][2])
 
 		#clear temporary list
 		rec.clear()
@@ -37,7 +37,7 @@ def calculate(num_seat):
 		#if no data
 		return("Error: Please try again later.")
 			
-print("Car Rental Problem\nPress 0 to end")
+print("Car Rental Problem\nPress 0 to exit")
 while True: 
     try:	
         num_seat = int(input("Please input number (seat):"))
@@ -45,6 +45,8 @@ while True:
         if num_seat == 0:
             print("Thank you! Please come again.")
             break
+        elif num_seat < 0:
+            print("Please enter valid number")
         else:
             cal = calculate(num_seat)
             print(cal)
