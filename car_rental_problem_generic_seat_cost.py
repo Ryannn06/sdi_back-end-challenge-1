@@ -1,3 +1,5 @@
+#Submitted by: Ryan Angelo Dela Cruz
+
 import math
 
 #car rental dictionary for size, capacity, and cost
